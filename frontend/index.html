@@ -1,0 +1,1807 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ScholarGuide - Admin Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            S
+        </div>
+
+        <div>
+
+            <div class="logo-text">
+                ScholarGuide
+            </div>
+
+            <div class="logo-subtitle">
+                Admin Panel
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+        <a
+            href="#"
+            class="nav-link active"
+            data-section="dashboard"
+        >
+            📊 Dashboard
+        </a>
+
+
+        <a
+            href="#"
+            class="nav-link"
+            data-section="students"
+        >
+            🎓 Students
+        </a>
+
+
+        <a
+            href="#"
+            class="nav-link"
+            data-section="scholarships"
+        >
+            🎓 Scholarships
+        </a>
+
+
+        <a
+            href="#"
+            class="nav-link"
+            data-section="applications"
+        >
+            📋 Applications
+        </a>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+        <div class="user-name">
+            Sanket ScholarGuide
+        </div>
+
+        <button
+            class="logout-btn"
+            onclick="logout()"
+        >
+            ↪ Logout
+        </button>
+
+    </div>
+
+</aside>
+
+
+
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
+
+<main class="main-content">
+
+
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
+
+<section
+    id="dashboard"
+    class="content-section"
+>
+
+    <div class="page-header">
+
+        <div>
+
+            <h1>
+                Dashboard
+            </h1>
+
+            <p>
+                Welcome to your ScholarGuide admin dashboard.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- STAT CARDS -->
+
+    <div class="stats-grid">
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🎓
+            </div>
+
+            <div class="stat-info">
+
+                <h3>
+                    Total Students
+                </h3>
+
+                <p id="totalStudents">
+                    0
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🎓
+            </div>
+
+            <div class="stat-info">
+
+                <h3>
+                    Scholarships
+                </h3>
+
+                <p id="totalScholarships">
+                    0
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📋
+            </div>
+
+            <div class="stat-info">
+
+                <h3>
+                    Applications
+                </h3>
+
+                <p id="totalApplications">
+                    0
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ✓
+            </div>
+
+            <div class="stat-info">
+
+                <h3>
+                    Open Scholarships
+                </h3>
+
+                <p id="openScholarships">
+                    0
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- OVERVIEW -->
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <div>
+
+                <h2>
+                    ScholarGuide Overview
+                </h2>
+
+                <p>
+                    Manage students and scholarship applications.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="detail-grid">
+
+
+            <div class="detail-item">
+
+                <strong>
+                    Maximum Applications
+                </strong>
+
+                <span>
+                    5 applications allowed per student
+                </span>
+
+            </div>
+
+
+
+            <div class="detail-item">
+
+                <strong>
+                    Service Package
+                </strong>
+
+                <span>
+                    ₹3,000 scholarship assistance package
+                </span>
+
+            </div>
+
+
+
+            <div class="detail-item">
+
+                <strong>
+                    Advance
+                </strong>
+
+                <span>
+                    ₹1,000 initial payment
+                </span>
+
+            </div>
+
+
+
+            <div class="detail-item">
+
+                <strong>
+                    Support
+                </strong>
+
+                <span>
+                    Eligibility + document + application guidance
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- QUICK ACTIONS -->
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <div>
+
+                <h2>
+                    Quick Actions
+                </h2>
+
+                <p>
+                    Frequently used actions
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="data-grid">
+
+
+            <button
+                class="btn btn-primary"
+                onclick="showSection('students')"
+            >
+                + Add Student
+            </button>
+
+
+            <button
+                class="btn btn-primary"
+                onclick="showSection('scholarships')"
+            >
+                + Add Scholarship
+            </button>
+
+
+            <button
+                class="btn btn-secondary"
+                onclick="showSection('applications')"
+            >
+                📋 View Applications
+            </button>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     STUDENTS
+===================================================== -->
+
+<section
+    id="students"
+    class="content-section"
+    style="display:none;"
+>
+
+
+    <div class="page-header">
+
+        <div>
+
+            <h1>
+                Students
+            </h1>
+
+            <p>
+                Manage student information and eligibility.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ADD STUDENT FORM -->
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <div>
+
+                <h2>
+                    Add New Student
+                </h2>
+
+                <p>
+                    Enter the student's academic and personal details.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <form id="studentForm">
+
+            <div class="form-grid">
+
+
+                <!-- NAME -->
+
+                <div class="form-group">
+
+                    <label>
+                        Full Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="studentName"
+                        placeholder="Enter full name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- MOBILE -->
+
+                <div class="form-group">
+
+                    <label>
+                        Mobile Number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="studentMobile"
+                        placeholder="Enter mobile number"
+                    >
+
+                </div>
+
+
+
+                <!-- COURSE -->
+
+                <div class="form-group">
+
+                    <label>
+                        Course
+                    </label>
+
+                    <input
+                        type="text"
+                        id="studentCourse"
+                        value="B.Sc Computer Science"
+                    >
+
+                </div>
+
+
+
+                <!-- YEAR -->
+
+                <div class="form-group">
+
+                    <label>
+                        Academic Year
+                    </label>
+
+                    <input
+                        type="text"
+                        id="studentYear"
+                        value="1st Year"
+                    >
+
+                </div>
+
+
+
+                <!-- 10TH -->
+
+                <div class="form-group">
+
+                    <label>
+                        10th Percentage
+                    </label>
+
+                    <input
+                        type="number"
+                        id="student10th"
+                        step="0.01"
+                        min="0"
+                        max="100"
+                        placeholder="e.g. 85"
+                    >
+
+                </div>
+
+
+
+                <!-- 12TH -->
+
+                <div class="form-group">
+
+                    <label>
+                        12th Percentage
+                    </label>
+
+                    <input
+                        type="number"
+                        id="student12th"
+                        step="0.01"
+                        min="0"
+                        max="100"
+                        placeholder="e.g. 80"
+                    >
+
+                </div>
+
+
+
+                <!-- MATH -->
+
+                <div class="form-group">
+
+                    <label>
+                        Mathematics Percentage
+                    </label>
+
+                    <input
+                        type="number"
+                        id="studentMath"
+                        step="0.01"
+                        min="0"
+                        max="100"
+                        placeholder="e.g. 75"
+                    >
+
+                </div>
+
+
+
+                <!-- INCOME -->
+
+                <div class="form-group">
+
+                    <label>
+                        Family Annual Income
+                    </label>
+
+                    <input
+                        type="number"
+                        id="studentIncome"
+                        placeholder="e.g. 500000"
+                    >
+
+                </div>
+
+
+
+                <!-- CATEGORY -->
+
+                <div class="form-group">
+
+                    <label>
+                        Category
+                    </label>
+
+                    <select id="studentCategory">
+
+                        <option value="">
+                            Select Category
+                        </option>
+
+                        <option value="Open">
+                            Open
+                        </option>
+
+                        <option value="OBC">
+                            OBC
+                        </option>
+
+                        <option value="SC">
+                            SC
+                        </option>
+
+                        <option value="ST">
+                            ST
+                        </option>
+
+                        <option value="EWS">
+                            EWS
+                        </option>
+
+                        <option value="VJNT">
+                            VJNT
+                        </option>
+
+                        <option value="SBC">
+                            SBC
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- GENDER -->
+
+                <div class="form-group">
+
+                    <label>
+                        Gender
+                    </label>
+
+                    <select id="studentGender">
+
+                        <option value="">
+                            Select Gender
+                        </option>
+
+                        <option value="Male">
+                            Male
+                        </option>
+
+                        <option value="Female">
+                            Female
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- AGE -->
+
+                <div class="form-group">
+
+                    <label>
+                        Age
+                    </label>
+
+                    <input
+                        type="number"
+                        id="studentAge"
+                        min="1"
+                        max="100"
+                        placeholder="Age"
+                    >
+
+                </div>
+
+
+
+                <!-- STATE -->
+
+                <div class="form-group">
+
+                    <label>
+                        State
+                    </label>
+
+                    <input
+                        type="text"
+                        id="studentState"
+                        value="Maharashtra"
+                    >
+
+                </div>
+
+
+
+                <!-- COLLEGE -->
+
+                <div class="form-group">
+
+                    <label>
+                        College
+                    </label>
+
+                    <input
+                        type="text"
+                        id="studentCollege"
+                        placeholder="Enter college name"
+                    >
+
+                </div>
+
+
+
+                <!-- ADMISSION -->
+
+                <div class="form-group">
+
+                    <label>
+                        Admission Type
+                    </label>
+
+                    <select id="studentAdmissionType">
+
+                        <option value="">
+                            Select
+                        </option>
+
+                        <option value="Merit">
+                            Merit
+                        </option>
+
+                        <option value="CAP">
+                            CAP
+                        </option>
+
+                        <option value="Management">
+                            Management
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- STATUS -->
+
+                <div class="form-group">
+
+                    <label>
+                        Student Status
+                    </label>
+
+                    <select id="studentStatus">
+
+                        <option value="Active">
+                            Active
+                        </option>
+
+                        <option value="Inactive">
+                            Inactive
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- EXISTING SCHOLARSHIP -->
+
+                <div class="form-group">
+
+                    <label>
+                        Existing Scholarship
+                    </label>
+
+                    <input
+                        type="text"
+                        id="studentExistingScholarship"
+                        placeholder="None / Scholarship name"
+                    >
+
+                </div>
+
+
+
+                <!-- DISABILITY -->
+
+                <div class="form-group">
+
+                    <label>
+                        Disability
+                    </label>
+
+                    <input
+                        type="text"
+                        id="studentDisability"
+                        placeholder="None / Details"
+                    >
+
+                </div>
+
+
+
+                <!-- FAMILY CONDITION -->
+
+                <div class="form-group">
+
+                    <label>
+                        Special Family Condition
+                    </label>
+
+                    <input
+                        type="text"
+                        id="studentSpecialFamily"
+                        placeholder="None / Details"
+                    >
+
+                </div>
+
+
+
+                <!-- BUTTON -->
+
+                <div class="form-actions">
+
+                    <button
+                        type="reset"
+                        class="btn btn-secondary"
+                    >
+                        Clear
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        Add Student
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+
+    <!-- STUDENT LIST -->
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <div>
+
+                <h2>
+                    Student Records
+                </h2>
+
+                <p>
+                    Students stored in PostgreSQL.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="studentsList"
+            class="data-grid"
+        ></div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     SCHOLARSHIPS
+===================================================== -->
+
+<section
+    id="scholarships"
+    class="content-section"
+    style="display:none;"
+>
+
+
+    <div class="page-header">
+
+        <div>
+
+            <h1>
+                Scholarships
+            </h1>
+
+            <p>
+                Manage scholarship programs and eligibility criteria.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ADD SCHOLARSHIP -->
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <div>
+
+                <h2>
+                    Add Scholarship
+                </h2>
+
+                <p>
+                    Enter scholarship details and eligibility rules.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <form id="scholarshipForm">
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label>
+                        Scholarship Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="scholarshipName"
+                        placeholder="Scholarship name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Provider
+                    </label>
+
+                    <input
+                        type="text"
+                        id="scholarshipProvider"
+                        placeholder="Provider / Organization"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Amount
+                    </label>
+
+                    <input
+                        type="number"
+                        id="scholarshipAmount"
+                        placeholder="Amount"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Deadline
+                    </label>
+
+                    <input
+                        type="date"
+                        id="deadline"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Application URL
+                    </label>
+
+                    <input
+                        type="url"
+                        id="applicationUrl"
+                        placeholder="https://..."
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Status
+                    </label>
+
+                    <select id="scholarshipStatus">
+
+                        <option value="Open">
+                            Open
+                        </option>
+
+                        <option value="Closed">
+                            Closed
+                        </option>
+
+                        <option value="Upcoming">
+                            Upcoming
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Last Verified
+                    </label>
+
+                    <input
+                        type="date"
+                        id="lastVerified"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Minimum 10th %
+                    </label>
+
+                    <input
+                        type="number"
+                        id="min10th"
+                        step="0.01"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Minimum 12th %
+                    </label>
+
+                    <input
+                        type="number"
+                        id="min12th"
+                        step="0.01"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Maximum Family Income
+                    </label>
+
+                    <input
+                        type="number"
+                        id="maxIncome"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Minimum Age
+                    </label>
+
+                    <input
+                        type="number"
+                        id="minAge"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Maximum Age
+                    </label>
+
+                    <input
+                        type="number"
+                        id="maxAge"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Minimum Mathematics %
+                    </label>
+
+                    <input
+                        type="number"
+                        id="minMath"
+                        step="0.01"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Eligible Courses
+                    </label>
+
+                    <input
+                        type="text"
+                        id="eligibleCourses"
+                        placeholder="B.Sc, BCA, BE"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Eligible Years
+                    </label>
+
+                    <input
+                        type="text"
+                        id="eligibleYears"
+                        placeholder="1st Year, 2nd Year"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Eligible Categories
+                    </label>
+
+                    <input
+                        type="text"
+                        id="eligibleCategories"
+                        placeholder="OBC, SC, ST"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Eligible Gender
+                    </label>
+
+                    <input
+                        type="text"
+                        id="eligibleGender"
+                        placeholder="Female, Male"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Eligible States
+                    </label>
+
+                    <input
+                        type="text"
+                        id="eligibleStates"
+                        placeholder="Maharashtra"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Eligible Colleges
+                    </label>
+
+                    <input
+                        type="text"
+                        id="eligibleColleges"
+                        placeholder="College names"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Admission Type
+                    </label>
+
+                    <input
+                        type="text"
+                        id="eligibleAdmissionType"
+                        placeholder="CAP, Merit"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Student Status
+                    </label>
+
+                    <input
+                        type="text"
+                        id="eligibleStudentStatus"
+                        placeholder="Active"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Disability Requirement
+                    </label>
+
+                    <input
+                        type="text"
+                        id="disabilityRequirement"
+                        placeholder="Any / None / Required"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Family Requirement
+                    </label>
+
+                    <input
+                        type="text"
+                        id="familyRequirement"
+                        placeholder="Family condition"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Existing Scholarship Requirement
+                    </label>
+
+                    <input
+                        type="text"
+                        id="existingScholarshipRequirement"
+                        placeholder="None / Any"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group full-width">
+
+                    <label>
+                        Required Documents
+                    </label>
+
+                    <textarea
+                        id="requiredDocuments"
+                        placeholder="Aadhaar, Income Certificate, Marksheet..."
+                    ></textarea>
+
+                </div>
+
+
+
+                <div class="form-group full-width">
+
+                    <label>
+                        Selection Process
+                    </label>
+
+                    <textarea
+                        id="selectionProcess"
+                        placeholder="Explain selection process..."
+                    ></textarea>
+
+                </div>
+
+
+
+                <div class="form-group full-width">
+
+                    <label>
+                        Renewal Conditions
+                    </label>
+
+                    <textarea
+                        id="renewalConditions"
+                        placeholder="Renewal requirements..."
+                    ></textarea>
+
+                </div>
+
+
+
+                <div class="form-group full-width">
+
+                    <label>
+                        Notes
+                    </label>
+
+                    <textarea
+                        id="scholarshipNotes"
+                        placeholder="Additional notes..."
+                    ></textarea>
+
+                </div>
+
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="reset"
+                        class="btn btn-secondary"
+                    >
+                        Clear
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        Add Scholarship
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+
+    <!-- SCHOLARSHIP LIST -->
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <div>
+
+                <h2>
+                    Scholarship Records
+                </h2>
+
+                <p>
+                    Scholarships stored in PostgreSQL.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="scholarshipsList"
+            class="data-grid"
+        ></div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     APPLICATIONS
+===================================================== -->
+
+<section
+    id="applications"
+    class="content-section"
+    style="display:none;"
+>
+
+
+    <div class="page-header">
+
+        <div>
+
+            <h1>
+                Applications
+            </h1>
+
+            <p>
+                Manage student scholarship applications.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <div>
+
+                <h2>
+                    Application Records
+                </h2>
+
+                <p>
+                    Track the status of every application.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div id="applicationsList"></div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     ELIGIBILITY MODAL
+===================================================== -->
+
+<div
+    id="eligibilityModal"
+    class="modal"
+>
+
+
+    <div class="modal-content">
+
+
+        <div class="modal-header">
+
+            <div>
+
+                <h2>
+                    Scholarship Eligibility
+                </h2>
+
+                <p>
+                    Student:
+                    <strong id="eligibilityStudentName">
+                        -
+                    </strong>
+                </p>
+
+            </div>
+
+
+            <button
+                class="close-modal"
+                onclick="
+                    closeModal('eligibilityModal')
+                "
+            >
+                ×
+            </button>
+
+        </div>
+
+
+
+        <div
+            id="eligibilitySummary"
+            style="margin-bottom:20px;"
+        ></div>
+
+
+
+        <div id="eligibilityResults"></div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SCHOLARSHIP DETAIL MODAL
+===================================================== -->
+
+<div
+    id="scholarshipDetailModal"
+    class="modal"
+>
+
+
+    <div class="modal-content">
+
+
+        <div class="modal-header">
+
+            <div>
+
+                <span
+                    id="detailStatus"
+                    class="badge"
+                >
+                    Open
+                </span>
+
+                <h2 id="detailScholarshipName">
+                    Scholarship
+                </h2>
+
+            </div>
+
+
+            <button
+                class="close-modal"
+                onclick="
+                    closeModal('scholarshipDetailModal')
+                "
+            >
+                ×
+            </button>
+
+        </div>
+
+
+
+        <div class="detail-grid">
+
+
+            <div class="detail-item">
+
+                <strong>
+                    Provider
+                </strong>
+
+                <span id="detailProvider">
+                    -
+                </span>
+
+            </div>
+
+
+
+            <div class="detail-item">
+
+                <strong>
+                    Amount
+                </strong>
+
+                <span id="detailAmount">
+                    -
+                </span>
+
+            </div>
+
+
+
+            <div class="detail-item">
+
+                <strong>
+                    Deadline
+                </strong>
+
+                <span id="detailDeadline">
+                    -
+                </span>
+
+            </div>
+
+
+
+            <div class="detail-item">
+
+                <strong>
+                    Last Verified
+                </strong>
+
+                <span id="detailVerified">
+                    -
+                </span>
+
+            </div>
+
+
+
+            <div class="detail-item">
+
+                <strong>
+                    Eligible Students
+                </strong>
+
+                <span id="detailEligibleStudents">
+                    0
+                </span>
+
+            </div>
+
+
+
+            <div class="detail-item">
+
+                <strong>
+                    Applications
+                </strong>
+
+                <span id="detailApplications">
+                    0
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="card">
+
+            <h3 style="margin-bottom:12px;">
+                Eligibility Criteria
+            </h3>
+
+            <div id="detailEligibility"></div>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <h3 style="margin-bottom:12px;">
+                Required Documents
+            </h3>
+
+            <p id="detailDocuments">
+                -
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <h3 style="margin-bottom:12px;">
+                Selection Process
+            </h3>
+
+            <p id="detailSelection">
+                -
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <h3 style="margin-bottom:12px;">
+                Renewal Conditions
+            </h3>
+
+            <p id="detailRenewal">
+                -
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <h3 style="margin-bottom:12px;">
+                Notes
+            </h3>
+
+            <p id="detailNotes">
+                -
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SCRIPT
+===================================================== -->
+
+<script src="api-config.js"></script>
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
